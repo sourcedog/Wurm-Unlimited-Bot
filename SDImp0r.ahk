@@ -18,6 +18,9 @@ eventLogFolder := config.getEventLogFolder()
 eventLogFile    = %eventLogFolder%_Event.%eventLogTimeString%.txt
 eventLogUpdateChecker := new EventLogUpdateChecker(eventLogFile)
 
+improveButton := config.getImproveButton()
+examineButton := config.getExamineButton()
+
 console.log("Please mark items to improve by hovering the mouse over each one and pressing SPACE")
 console.log("Start execution with SHIFT+ESC when ready")
 console.log("Once running, press SHIFT+ESC to go back to idle, press ESC to stop entirely")
@@ -37,7 +40,7 @@ curItemPos := itemPositions.shift()
 
 MouseMove, curItemPos["x"], curItemPos["y"]
 Send, {LButton}
-Send {NumpadAdd down}
+Send {%examineButton% down}
 
 Loop
 {
@@ -61,7 +64,7 @@ Loop
                 curItemPos := itemPositions.shift()
                 MouseMove, curItemPos["x"], curItemPos["y"]
                 Send, {LButton}
-                Send {NumpadAdd down}
+                Send {%examineButton% down}
                 continue
             }
             else
@@ -82,7 +85,7 @@ Loop
                 console.log("Sending Keypress " . keyToPress)
                 Send {%keyToPress% down}
                 Sleep 500
-                Send {Numpad0 down}
+                Send {%improveButton% down}
                 sleep 6000   
             }
         }

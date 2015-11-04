@@ -15,8 +15,15 @@ Class EventLogParser
 				return element
 		}
 		
-		metalworkingConfig := this.config.getMetalworkingConfig()
-		for index, element in metalworkingConfig
+		skillToUse := this.config.getSkill()
+		if(skillToUse == "metalworking")
+			skillConfig := this.config.getMetalworkingConfig()	
+		else if(skillToUse == "leatherworking")
+			skillConfig := this.config.getLeatherworkingConfig()	
+		
+		skillConfig := this.config.getMetalworkingConfig()
+		
+		for index, element in skillConfig
         {
 			If InStr(line, index)
 				return element

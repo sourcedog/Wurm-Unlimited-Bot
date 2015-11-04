@@ -10,6 +10,22 @@ class Config
 		IniRead, tmpConfigFile, % configFile, GENERAL, EVENTLOG_FOLDER
 		this.configData["eventLogFolder"] := tmpConfigFile
 
+		IniRead, tmpConfigSkill, % configFile, GENERAL, USE
+		this.configData["skill"] := tmpConfigSkill
+
+		;;; Actions ;;;
+		actions := Object()
+		
+		; Improve
+		IniRead, tmpConfigButton, % configFile, ACTIONS, ACTION_IMPROVE
+		actions["improve"] := tmpConfigButton
+		
+		; Examine
+		IniRead, tmpConfigButton, % configFile, ACTIONS, ACTION_EXAMINE
+		actions["examine"] := tmpConfigButton
+		
+		this.configData["actions"] := actions
+
 		;;; Special ;;;
 		special := Object()
 		
@@ -71,6 +87,51 @@ class Config
 		metalWorking[tmpConfigMessage] := tmpConfigButton
 		
 		this.configData["metalworking"] := metalWorking
+		
+		;;; Leatherworking ;;;
+		leatherWorking := Object()
+		
+		; Leather cannot be used to improve any further, jump to next target
+		IniRead, tmpConfigMessage, % configFile, LEATHERWORKING, MESSAGE_LEATHER_POOR_SHAPE
+		leatherWorking[tmpConfigMessage] := "next"
+		
+		; Leather
+		IniRead, tmpConfigMessage, % configFile, LEATHERWORKING, MESSAGE_NEEDS_LEATHER
+		IniRead, tmpConfigSlot, % configFile, LEATHERWORKING, TOOLBELT_LEATHER
+		IniRead, tmpConfigButton, % configFile, TOOLBELT, TOOLBELT_SLOT_%tmpConfigSlot%
+		leatherWorking[tmpConfigMessage] := tmpConfigButton
+		
+		IniRead, tmpConfigMessage, % configFile, LEATHERWORKING, MESSAGE_NEEDS_MORELEATHER
+		IniRead, tmpConfigSlot, % configFile, LEATHERWORKING, TOOLBELT_LEATHER
+		IniRead, tmpConfigButton, % configFile, TOOLBELT, TOOLBELT_SLOT_%tmpConfigSlot%
+		leatherWorking[tmpConfigMessage] := tmpConfigButton
+		
+		; Hammer
+		IniRead, tmpConfigMessage, % configFile, LEATHERWORKING, MESSAGE_NEEDS_MALLET
+		IniRead, tmpConfigSlot, % configFile, LEATHERWORKING, TOOLBELT_MALLET
+		IniRead, tmpConfigButton, % configFile, TOOLBELT, TOOLBELT_SLOT_%tmpConfigSlot%
+		leatherWorking[tmpConfigMessage] := tmpConfigButton
+		
+		
+		; Water
+		IniRead, tmpConfigMessage, % configFile, LEATHERWORKING, MESSAGE_NEEDS_AWL
+		IniRead, tmpConfigSlot, % configFile, LEATHERWORKING, TOOLBELT_AWL
+		IniRead, tmpConfigButton, % configFile, TOOLBELT, TOOLBELT_SLOT_%tmpConfigSlot%
+		leatherWorking[tmpConfigMessage] := tmpConfigButton
+		
+		; Whetstone
+		IniRead, tmpConfigMessage, % configFile, LEATHERWORKING, MESSAGE_NEEDS_KNIFE
+		IniRead, tmpConfigSlot, % configFile, LEATHERWORKING, TOOLBELT_KNIFE
+		IniRead, tmpConfigButton, % configFile, TOOLBELT, TOOLBELT_SLOT_%tmpConfigSlot%
+		leatherWorking[tmpConfigMessage] := tmpConfigButton
+		
+		; Pelt
+		IniRead, tmpConfigMessage, % configFile, LEATHERWORKING, MESSAGE_NEEDS_NEEDLE
+		IniRead, tmpConfigSlot, % configFile, LEATHERWORKING, TOOLBELT_NEEDLE
+		IniRead, tmpConfigButton, % configFile, TOOLBELT, TOOLBELT_SLOT_%tmpConfigSlot%
+		leatherWorking[tmpConfigMessage] := tmpConfigButton
+	
+		this.configData["leatherworking"] := leatherWorking
 	}
 	
 	getEventLogFolder()
@@ -83,8 +144,28 @@ class Config
 		return this.configData["metalworking"]
 	}
 	
+	getLeatherworkingConfig()
+	{
+		return this.configData["leatherworking"]	
+	}
+	
 	getSpecialConfig()
 	{
 		return this.configData["special"]
+	}
+	
+	getImproveButton()
+	{
+		return this.configData["actions"]["improve"]
+	}
+	
+	getExamineButton()
+	{
+		return this.configData["actions"]["examine"]
+	}
+	
+	getSkill()
+	{
+		return this.configData["skill"]
 	}
 }
