@@ -106,26 +106,25 @@ class Config
 		IniRead, tmpConfigButton, % configFile, TOOLBELT, TOOLBELT_SLOT_%tmpConfigSlot%
 		leatherWorking[tmpConfigMessage] := tmpConfigButton
 		
-		; Hammer
+		; Mallet
 		IniRead, tmpConfigMessage, % configFile, LEATHERWORKING, MESSAGE_NEEDS_MALLET
 		IniRead, tmpConfigSlot, % configFile, LEATHERWORKING, TOOLBELT_MALLET
 		IniRead, tmpConfigButton, % configFile, TOOLBELT, TOOLBELT_SLOT_%tmpConfigSlot%
 		leatherWorking[tmpConfigMessage] := tmpConfigButton
 		
-		
-		; Water
+		; Awl
 		IniRead, tmpConfigMessage, % configFile, LEATHERWORKING, MESSAGE_NEEDS_AWL
 		IniRead, tmpConfigSlot, % configFile, LEATHERWORKING, TOOLBELT_AWL
 		IniRead, tmpConfigButton, % configFile, TOOLBELT, TOOLBELT_SLOT_%tmpConfigSlot%
 		leatherWorking[tmpConfigMessage] := tmpConfigButton
 		
-		; Whetstone
+		; Leatherknife
 		IniRead, tmpConfigMessage, % configFile, LEATHERWORKING, MESSAGE_NEEDS_KNIFE
 		IniRead, tmpConfigSlot, % configFile, LEATHERWORKING, TOOLBELT_KNIFE
 		IniRead, tmpConfigButton, % configFile, TOOLBELT, TOOLBELT_SLOT_%tmpConfigSlot%
 		leatherWorking[tmpConfigMessage] := tmpConfigButton
 		
-		; Pelt
+		; Needle
 		IniRead, tmpConfigMessage, % configFile, LEATHERWORKING, MESSAGE_NEEDS_NEEDLE
 		IniRead, tmpConfigSlot, % configFile, LEATHERWORKING, TOOLBELT_NEEDLE
 		IniRead, tmpConfigButton, % configFile, TOOLBELT, TOOLBELT_SLOT_%tmpConfigSlot%
