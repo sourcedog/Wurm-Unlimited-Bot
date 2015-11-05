@@ -51,6 +51,10 @@ class Config
 		IniRead, tmpConfigMessage, % configFile, METALWORKING, MESSAGE_NOT_GLOWING
 		metalWorking[tmpConfigMessage] := "halt"
 		
+		; Not enough water to proceed, halt
+		IniRead, tmpConfigMessage, % configFile, METALWORKING, MESSAGE_NO_WATER
+		metalWorking[tmpConfigMessage] := "halt"
+		
 		; Hammer
 		IniRead, tmpConfigMessage, % configFile, METALWORKING, MESSAGE_NEEDS_HAMMER
 		IniRead, tmpConfigSlot, % configFile, METALWORKING, TOOLBELT_HAMMER

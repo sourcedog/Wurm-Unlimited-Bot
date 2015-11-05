@@ -26,6 +26,7 @@ MESSAGE_TOOL_EMPTY   = 'Improve' requires an active item.
 [METALWORKING]
 MESSAGE_LUMP_POOR_SHAPE = The lump is in too poor shape to improve
 MESSAGE_NOT_GLOWING     = Metal needs to be glowing hot while smithing.
+MESSAGE_NO_WATER        = You need more water in order to cool
 MESSAGE_NEEDS_HAMMER    = has some dents that must be flattened by a hammer.
 MESSAGE_NEEDS_LUMP      = could be improved with a lump.
 MESSAGE_NEEDS_MORELUMP  = could be improved with some more lump.
