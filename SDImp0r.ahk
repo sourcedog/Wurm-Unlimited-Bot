@@ -6,6 +6,8 @@
 #Include EventLogUpdateChecker.ahk
 #Include EventLogParser.ahk
 
+SetTitleMatchMode, 2
+
 startExecution = 0
 
 itemPositions         := []
@@ -53,6 +55,8 @@ Loop
         {
             keyToPress := eventLogParser.parseString(element)
             
+            WinActivate, Wurm Unlimited
+            
             if(keyToPress == "next")
             {
                 if(itemPositions.length() <= 0)
@@ -85,6 +89,7 @@ Loop
                 console.log("Sending Keypress " . keyToPress)
                 Send {%keyToPress% down}
                 Sleep 500
+                console.log("Sending Keypress " . improveButton)
                 Send {%improveButton% down}
                 sleep 6000   
             }
@@ -110,6 +115,7 @@ space::
     if(startExecution == 0)
     {
         console.log("Recording item position...")
+        WinActivate, Wurm Unlimited
         MouseGetPos, PosX, PosY
         mousePos := Object()
         mousePos["x"] := PosX
