@@ -74,8 +74,8 @@ class QLParser
 			}
 		}
 		
-		upperPosY := upperPosY - 7
-		lowerPosY := lowerPosY - 7
+		;upperPosY := upperPosY - 7
+		;lowerPosY := lowerPosY - 7
 		
 		RunWait, Capture2Text.exe %upperPosX% %upperPosY% %lowerPosX% %lowerPosY%, %A_ScriptDir%\lib\Capture2Text\
 
