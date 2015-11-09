@@ -45,7 +45,13 @@ Loop
 }
 
 if(curItemPos == "")
+{
     curItemPos := itemPositions.shift()
+    MouseMove, curItemPos["x"], curItemPos["y"]
+    Send, {LButton}
+    Send {%repairButton% down}
+    Sleep 6000
+}
 
 MouseMove, curItemPos["x"], curItemPos["y"]
 Send, {LButton}
@@ -89,6 +95,8 @@ Loop
                 curItemPos := itemPositions.shift()
                 MouseMove, curItemPos["x"], curItemPos["y"]
                 Send, {LButton}
+                Send {%repairButton% down}
+                Sleep 6000
                 Send {%examineButton% down}
                 continue
             }
