@@ -13,6 +13,9 @@ class Config
 		IniRead, tmpConfigSkill, % configFile, GENERAL, USE
 		this.configData["skill"] := tmpConfigSkill
 
+		IniRead, tmpMaxItemQl, % configFile, GENERAL, MAX_ITEM_QL
+		this.configData["maxitemql"] := tmpMaxItemQl
+
 		;;; Actions ;;;
 		actions := Object()
 		
@@ -23,6 +26,10 @@ class Config
 		; Examine
 		IniRead, tmpConfigButton, % configFile, ACTIONS, ACTION_EXAMINE
 		actions["examine"] := tmpConfigButton
+		
+		; Repair
+		IniRead, tmpConfigButton, % configFile, ACTIONS, ACTION_REPAIR
+		actions["repair"] := tmpConfigButton
 		
 		this.configData["actions"] := actions
 
@@ -167,8 +174,18 @@ class Config
 		return this.configData["actions"]["examine"]
 	}
 	
+	getRepairButton()
+	{
+		return this.configData["actions"]["repair"]
+	}
+	
 	getSkill()
 	{
 		return this.configData["skill"]
+	}
+	
+	getMaxItemQl()
+	{
+		return this.configData["maxitemql"]
 	}
 }

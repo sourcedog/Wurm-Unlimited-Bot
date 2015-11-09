@@ -1,6 +1,7 @@
 [GENERAL]
 USE             = metalworking ; metalworking|leatherworking
 EVENTLOG_FOLDER = C:\Steam\steamapps\common\Wurm Unlimited\WurmLauncher\PlayerFiles\players\Ashyja\test_logs\
+MAX_ITEM_QL     = 30
 
 [ACTIONS]
 ACTION_IMPROVE   = Numpad0

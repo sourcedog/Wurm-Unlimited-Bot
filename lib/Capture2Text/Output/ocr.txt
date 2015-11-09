@@ -1,0 +1,6 @@
+2,
+
+imperial street lamp, iron
+
+42,47 0,00 25,00 Q
+
